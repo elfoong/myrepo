@@ -1,5 +1,5 @@
 slide-number: true
-
+theme: moon
 .reveal h1,
 .reveal h2,
 .reveal h3,
