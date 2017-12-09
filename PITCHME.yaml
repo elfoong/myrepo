@@ -1,2 +1,2 @@
-theme-override: assets/css/mypitchme.css
-
+theme-override : assets/css/mypitchme.css
+theme : moon
