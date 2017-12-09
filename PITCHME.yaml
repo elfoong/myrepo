@@ -1,6 +1,8 @@
 slide-number: true
 
-.reveal h1,
+.reveal h1 {
+    line-height: 0.9em
+}
 .reveal h2,
 .reveal h3,
 .reveal h4,
