@@ -1,27 +1,7 @@
-# Hello, World
-* dddk
-* 안녕:
----
-
-## second
----
-
-
 # Ethereum Made Simple
 
-Last Updated 20161211
 
-## E.1 학습내용
-
-### E.1.1 목표
-
-* ethereum 네트워크를 시작할 수 있다.
-* smart contract을 컴파일해서 배포할 수 있다 (json rpc, nodejs)
-* smart contract을 사용할 수 있다 (json rpc, nodejs, html pages)
-* smart contract 이벤트를 사용할 수 있다.
-* IoT RPi
-
-### E.1.2 목차
+## E.1 목차
 
 * E.2 Ethereum
 * E.3 네트워크
@@ -31,54 +11,8 @@ Last Updated 20161211
 * E.7 Smart Contract 사용 geth, curl, ethjsonrpc (python), nodejs, web
 * E.8 이벤트
 
-### E.1.2 문제
-* 필수: e-3, e-12, e-13
-* 문제 e-1: 처음 Geth 네트워크 구성하고 접속하기
-* 문제 e-2: Geth 네트워크 구성하기 (ip를 넣어서) 
-* 문제 e-3: Geth 멀티노드 네트워크 구성하기 (ip를 넣어서) 
-* 문제 e-4: 계정을 생성하고 충전하기
-* 문제 e-5: 다른 계정으로 송금하기
-* 문제 e-6: solidity를 컴파일하기 (solc)
-* 문제 e-7: geth console
-* 문제 e-8: curl json rpc 
-* 문제 e-9: python json rpc 
-* 문제 e-10: 배포된 contract 사용하기 (json rpc)
-* 문제 e-11: contract 이벤트 사용하기 (geth console)
-* 문제 e-12: contract 이벤트 사용하기 (nodejs)
-* 문제 e-13: 웹으로 contract 배포하고 사용하기
-* 문제 e-14: dapp framework
-* 문제 e-15: RPi 
-* 문제 e-16: 호텔 문열기
 
-
-
-### E.2.5 설치
-
-* ethereum
-    ```
-    sudo apt-get install software-properties-common
-    sudo add-apt-repository ppa:ethereum/ethereum
-    sudo add-apt-repository ppa:ethereum/ethereum-dev
-    sudo apt-get update
-    sudo apt-get install ethereum
-    ```
-
-* go geth
-    * on ubuntu
-        * follow frontier (update on program_installer.sh)
-        * sudo apt-get install solc (for solidity)
-        * sudo apt-get install cpp-ethereum (whole stack)
-    * osx
-        * 설치 디렉토리로 이동해서 설치
-        * go-ethereum 디렉토리에 build/에 설치됨.
-        ```
-        $ git clone https://github.com/ethereum/go-ethereum        
-        $ cd go-ethereum
-        $ make geth
-        $ ./build/bin/geth
-        $ make all (모두 빌드하려면)
-        ```
-
+---
 
 ## 문제 e-1: 처음 Geth 네트워크 구성하고 접속하기
 
@@ -97,7 +31,7 @@ Last Updated 20161211
 nounce | 4바이트, proof-of-work의 암호 hash를 위해 무작위로 생성된 임의의 수. 난이도보다 보통 낮다
 alloc | 충전 금액을 적s고 네트워크를 만들면 된다 (내 account address) (지금은 되지 않는 듯하다) <br>"alloc": {"0xaddress": { "balance": "amount denoted in Wei" }}
 
-        
+---     
 
 
 ```python
@@ -116,7 +50,7 @@ alloc | 충전 금액을 적s고 네트워크를 만들면 된다 (내 account a
 ```
 
     Overwriting _CustomGenesis.json
-
+---
 
 ### bash shell을 사용해서 geth 네트워크를 실행한다.
 
@@ -130,7 +64,7 @@ geth --datadir $_dir init _CustomGenesis.json
 ```
 
     Overwriting _geth_CustomGensis.sh
-
+---
 
 !sh _geth_CustomGensis.sh
 
