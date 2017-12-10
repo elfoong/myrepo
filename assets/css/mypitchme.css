@@ -1,6 +1,17 @@
 .reveal h1,
 .reveal h2 {
     margin: 0 0 20px 0;
+    color: #ff0000;
+    font-family: "League Gothic", Impact, sans-serif;
+    font-size: 1.5em;
+    line-height: 1.5em;
+    letter-spacing: 0.02em;
+    text-transform: lowercase;
+    text-shadow: none;
+}
+.reveal ul,
+.reveal ol {
+    margin: 0 0 20px 0;
     color: #eee8d5;
     font-family: "League Gothic", Impact, sans-serif;
     font-size: 1.0em;
