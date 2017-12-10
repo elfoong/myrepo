@@ -8,4 +8,7 @@
 .reveal ol {
     font-size: 0.7em;
 }
-
+.reveal th,
+.reveal td {
+    font-size: 0.7em;
+}

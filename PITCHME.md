@@ -11,10 +11,9 @@
 * E.8 이벤트
 
 ---
-
 ## 문제 e-1: 처음 Geth 네트워크 구성하고 접속하기
 
-#### genesis.json 설정
+### genesis.json 설정
 
 * '최초' geth 네트워크를 구성하려면, genesis 설정으로 초기화 한다.
     * 자신만 사용하는 local private network을 구성한다.
