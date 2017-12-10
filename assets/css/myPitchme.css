@@ -1,6 +1,7 @@
 .reveal h1,
 .reveal h2,
 .reveal h3 {
+    text-align: left;
     font-size: 1.0em;
 }
 .reveal ul,
