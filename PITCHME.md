@@ -361,13 +361,13 @@ print mycompiled
 * nodejs
 * web pages
 
-
+---
 ## 문제 e-7: geth console
 
 * multiply
 * greeter
 
-
+---
 ### 단순한 session
 
 
@@ -386,12 +386,12 @@ console.log('net.peerCount: ', net.peerCount);
 
     Overwriting src/e_test2.js
 
-
+---
 
 ```python
 !geth --exec 'loadScript("src/e_test2.js")' attach http://117.xxx.xxx.xxx:8xxx
 ```
-
+---
 ### multiply
 
 * geth console에서의 사용 예.
@@ -414,7 +414,7 @@ console.log('net.peerCount: ', net.peerCount);
 > myMultiply.multiply.call(6)
 '42'
 ```
-
+---
 
 ```python
 %%writefile src/e_testGeth.js
