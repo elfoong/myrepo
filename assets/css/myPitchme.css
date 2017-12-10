@@ -1,8 +1,15 @@
 .reveal h1,
-.reveal h2,
+.reveal h2 {
+    text-align: left;
+    font-size: 1.2em;
+}
 .reveal h3 {
     text-align: left;
     font-size: 1.0em;
+}
+.reveal body {
+    font-size: 0.8em;
+    text-align: justify;
 }
 .reveal ul,
 .reveal ol {
@@ -12,3 +19,4 @@
 .reveal td {
     font-size: 0.7em;
 }
+
