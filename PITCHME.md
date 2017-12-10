@@ -1,6 +1,5 @@
 # Ethereum Made Simple
 
-
 ## E.1 목차
 
 * E.2 Ethereum
@@ -10,7 +9,6 @@
 * E.6 Smart Contract 개발-컴파일-거래-배포-사용
 * E.7 Smart Contract 사용 geth, curl, ethjsonrpc (python), nodejs, web
 * E.8 이벤트
-
 
 ---
 
@@ -25,7 +23,7 @@
 * genesis.json을 설정한다.
     * private으로 설정하는 경우, Frontier guide의 genesis.json 예제를 사용한다.
         https://github.com/ethereum/go-ethereum/wiki/Private-network
-
+---
 키 | 설명
 -------|-------
 nounce | 4바이트, proof-of-work의 암호 hash를 위해 무작위로 생성된 임의의 수. 난이도보다 보통 낮다
