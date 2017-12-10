@@ -61,20 +61,20 @@ geth --datadir $_dir init _CustomGenesis.json
 ```
 
     Overwriting _geth_CustomGensis.sh
----
-
 !sh _geth_CustomGensis.sh
+
+---
 
 * 새로운 계정을 만들면 충전을 해야 거래를 발생할 수 있다.
     * 충전을 하려면 계정을 새로 생성하고, 마이닝을 하면 된다 (아니면 직접 구매를 해야 한다).
     * personal.newAccount("password")
     * miner.start(1);admin.sleepBlocks(1);miner.stop()
 
-
-
 ```python
 !geth --datadir ~/Downloads/eth/1 account new
 ```
+
+---
 
 ## 문제 e-2: Geth 네트워크 구성하기 (ip를 넣어서)
 
@@ -98,11 +98,13 @@ geth --identity "myNode" \
 console 2>>$_log
 ```
 
+---
+
 * shell에서 실행 (노트북에서는 console이 실행되지 않는다)
     ```
     $ sh _geth3.sh
     ```
-
+---
 
 선택 | 설명 | 기본 값
 -----------|-----------|-----------
@@ -121,6 +123,8 @@ console 2>>$_log
 --verbosity | how much of the inner working of Geth are shown | 0=silent, 1=error, 2=warn, 3=info, 4=core, 5=debug, 6=debug detail
 --mine | 마이닝 |
 
+---
+
 ## 문제 e-3: Geth 멀티노드 네트워크 구성하기 (ip를 넣어서)
 
 * e-2를 멀티노드로 변경한다.
@@ -132,7 +136,7 @@ console 2>>$_log
     * network id가 동일해야 한다
     * genesis가 동일해야 한다.
 
-
+---
 * cluster를 구성한다.
     * 첫번째 노드는 아래 shell을 실행한다.
         ```
@@ -148,7 +152,7 @@ console 2>>$_log
             > admin.nodeInfo.enode
             "enode://e0...@[::]:30006"
             ```
-    
+---    
     * 두번째 노드를 첫번째에 추가한다. ([::]를 ip주소로 바꾸고)
     ```
     admin.addPeer("enode://...@117.xxx.xxx.xxx:30006?discport=0")
@@ -160,7 +164,7 @@ console 2>>$_log
         <datadir>/static-nodes.json
         ```
 
-
+---
 * 첫번째 노드를 실행한다.
 
 
@@ -182,7 +186,7 @@ geth --identity "myNode" \
 console 2>>$_log
 
 ```
-
+---
 
 ```python
 # %load $HOME/Downloads/eth/1/static-nodes.json
@@ -192,6 +196,7 @@ console 2>>$_log
 ]
 
 ```
+---
 
 * 두번째 노드를 실행한다.
 
@@ -214,11 +219,12 @@ geth --identity "jslNode" \
 console 2>>$_log
 
 ```
+---
 
 * 멀티노드를 성공적으로 구성하면, peer접속 정보를 볼 수 있다.
 
 !geth --exec "admin.peers;" attach http://117.xxx.xxx.xxx:8xxx
-
+---
 ## E.6 Smart Contract 개발
 
 ### E.6.1 Smart Contract이란?
@@ -227,7 +233,7 @@ console 2>>$_log
 * 비트코인의 블럭체인을 확장. 비트코인은 데이터만을 저장하지만, 이더리움은 프로그램도 저장.
 * 분산프로그램을 Smart Contract이라고 한다.
 * 사용할 때는 운영체제 evm을 설치해서 smart contract을 사용.
-
+---
 ### E.6.2 절차
 
 * Ethereum Virtual Machine에서 contract을 개발한다.
@@ -239,7 +245,7 @@ console 2>>$_log
 거래 | 거래를 생성하고 마이닝 대기 | transactionHash
 배포 (마이닝) | 마이닝하고 bloack chain의 주소 획득 | contractAddress
 사용 | abi, contractAddress로 contract api 호출 | contract api 결과
-
+---
 * 1-1 개발
     * 언어를 선택하여 (solidity), 프로그램을 구현한다.
     * 온라인 ide [browser-solidity](https://ethereum.github.io/browser-solidity/)
@@ -249,15 +255,15 @@ console 2>>$_log
         * '함수'
             * setter함수에 필요한 args를 타입에 맞게 넣고, '함수 버튼'을 누른다.
             * gettter함수로 출력
-
+---
 * 1-2 컴파일
     * solc로 컴파일 할 수 있다.
     * solc 설치되어 있지 않으면 browser-solidity를 사용한다.
-
+---
 * 1-3 거래
     * 거래가 발생하면, transactionHash가 생성된다.
     * 마이닝 전까지 대기 pending
-
+---
 * 1-4 배포 (마이닝과 같은 의미)
     * contract 배포 요청, 마이닝, blockchain에 주소를 받기 까지의 과정을 말한다.
     * blockchain에 배포하고 나면, 수정불가능 (immutable)
@@ -267,7 +273,7 @@ console 2>>$_log
         ```
         > miner.start(1);admin.sleepBlocks(1);miner.stop
         ```
-
+---
     * 마이닝 완료 
         * 블록체인에 배포된다.
         * blockNumber +1 증가.
@@ -276,19 +282,19 @@ console 2>>$_log
             ```
             > eth.getTransactionReceipt("0x3c58a...50bd5")
             ```         
-
+---
 * 1-5 사용
     * contract api 서비스를 호출한다.
         ```
         var greeter = eth.contract(ABI).at(Address);
         ```
 
-
+---
 ## 문제 e-6: solidity를 컴파일하기 (solc)
 
 * 개발-컴파일-거래-배포-사용 사이클
     * solidity 개발-컴파일
-
+---
 ### 컴파일러 준비
 
 * 컴파일러를 Solidity로 설정한다.
@@ -298,7 +304,7 @@ console 2>>$_log
     ```
     > eth.getCompilers()
     ```
-
+---
 ### greeter.sol
 
 * 출처 https://www.ethereum.org/greeter
@@ -337,7 +343,7 @@ contract greeter is mortal {
 
     Overwriting src/greeter.sol
 
-
+---
 
 ```python
 res=!solc --optimize --bin src/greeter.sol
@@ -347,7 +353,7 @@ print mycompiled
 
     60606040523461000057604051610284380380610284833981016040528051015b5b60008054600160a060020a0319166c01000000000000000000000000338102041790555b8060019080519060200190828054600181600116156101000203166002900490600052602060002090601f016020900481019282601f1061009157805160ff19168380011785556100be565b828001600101855582156100be579182015b828111156100be5782518255916020019190600101906100a3565b5b506100df9291505b808211156100db57600081556001016100c7565b5090565b50505b505b610192806100f26000396000f3606060405260e060020a600035046341c0e1b58114610029578063cfae321714610038575b610000565b34610000576100366100b3565b005b34610000576100456100f5565b60405180806020018281038252838181518152602001915080519060200190808383829060006004602084601f0104600302600f01f150905090810190601f1680156100a55780820380516001836020036101000a031916815260200191505b509250505060405180910390f35b6000543373ffffffffffffffffffffffffffffffffffffffff908116911614156100f25760005473ffffffffffffffffffffffffffffffffffffffff16ff5b5b565b604080516020808201835260008252600180548451600282841615610100026000190190921691909104601f8101849004840282018401909552848152929390918301828280156101875780601f1061015c57610100808354040283529160200191610187565b820191906000526020600020905b81548152906001019060200180831161016a57829003601f168201915b505050505090505b9056
 
-
+---
 ## E.7 Smart Contract 사용
 
 * geth console
