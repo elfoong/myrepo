@@ -1,0 +1,11 @@
+.reveal h1,
+.reveal h2 {
+    color: #ff0000;
+    font-size: 1.2em;
+}
+.reveal ul,
+.reveal ol {
+    color: #eee8d5;
+    font-size: 0.8em;
+}
+
